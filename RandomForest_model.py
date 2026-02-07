@@ -677,5 +677,4 @@ def train_model_all(station_qbf, station_predictors, predictors_info, \
     print(f"Execution time: {execution_time:.4f} seconds")
 
 if __name__ == "__main__":
-    from commandline import interface as _cli
-    _cli()
+    train_model_all()
