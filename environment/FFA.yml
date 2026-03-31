@@ -1,0 +1,23 @@
+name: ffa-r
+channels:
+    - conda-forge
+    - bioconda
+    - defaults
+dependencies:
+    - r-essentials
+    - r-tidyverse
+    - r-devtools
+    - r-gstat
+    - r-terra>=1.8.5
+    - r-rnaturalearth
+    - r-openStreetMap
+    - r-optparse
+    - bioconda::snakemake-minimal
+    - mamba
+    - pip
+    - pandas
+    # - pip:
+    #     - import-r[rcli]
+        # - git+https://github.com/floodnetProject16/CSHShydRology.git
+        # - git+https://github.com/CentreForHydrology/HYDAT.git
+        # - git+https://github.com/floodnetProject16/floodnetRfa
