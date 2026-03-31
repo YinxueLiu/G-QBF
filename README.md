@@ -1,4 +1,4 @@
-# Code for: [Paper Title]
+# Code for: Global Estimation of Bankfull River Discharge Reveals Distinct Flood Recurrences Across Climate Zones
 
 This repository contains the code used to reproduce the main results and figures in:
 Global Estimation of Bankfull River Discharge Reveals Distinct Flood Recurrences Across Climate Zones
