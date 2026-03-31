@@ -1,0 +1,17 @@
+name: RF_py
+channels:
+    - conda-forge
+dependencies:
+    - pandas
+    - scikit-learn
+    - proplot
+    - cartopy
+    - seaborn
+    - geopandas
+    - rasterio
+    - ipython
+    - fire
+    - tqdm  # progress reporting
+    - pip
+    - pip:
+        - ipdb
