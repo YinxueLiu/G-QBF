@@ -1,0 +1,1 @@
+{'randomforestregressor__max_features': 0.4, 'randomforestregressor__min_samples_leaf': 2, 'randomforestregressor__n_estimators': 500}
