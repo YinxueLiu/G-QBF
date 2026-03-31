@@ -12,15 +12,23 @@ Global Estimation of Bankfull River Discharge Reveals Distinct Flood Recurrences
 - Required packages (see `environment/randomforest.yml`, environment/FFA_POT.yml)
 
 To set up the environment:
-conda env create -f yml file
+conda env create -f environment/filename.yml
 conda activate [env_name]
 
 ---
 
 ## 2. Data
 
-- Input data sources are described in Supplementary Text S1 of the paper.
-- Where available, links to original data sources are provided in the Supplementary.
+To train and evaluate the Random Forest model:
+- Observed bankfull discharge
+- Predictors at each of the above observed bankfull discharge sites
+
+To make predictions of global rivers:
+- Trained model from the above step, trained.joblib
+- Predictors for global rivers
+  
+To analyze the return period of the bankfull discharge data and generate the 2-year return period of floods:
+- Daily streamflow records matched to the observed or estimated bankfull discharge
 
 ---
 
