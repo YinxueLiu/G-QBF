@@ -1,4 +1,4 @@
-name: RF_py
+name: RF-GQBF
 channels:
     - conda-forge
 dependencies:
