@@ -9,7 +9,7 @@ Global Estimation of Bankfull River Discharge Reveals Distinct Flood Recurrences
 
 - Python [Random forest]
 - R [Flood frequency analysis]
-- Required packages (see `environment/randomforest.yml`, environment/FFA_POT.yml)
+- Required packages (see `environment/randomforest.yml`, `environment/FFA_POT.yml`)
 
 To set up the environment:
 conda env create -f environment/filename.yml
@@ -37,11 +37,11 @@ To analyze the return period of the bankfull discharge data and generate the 2-y
 Run the scripts in the following order:
 
 1. Train and evaluate model
-python scripts/RandomForest.py
+`python scripts/RandomForest.py`
 
 2. Analysis the return period of bankfull discharge and 2-year return period of floods
 
-R scripts/FFA_POT.R
+`R scripts/FFA_POT.R`
 
 ---
 
