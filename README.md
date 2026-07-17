@@ -11,7 +11,8 @@ Global Estimation of Bankfull River Discharge Reveals Distinct Flood Recurrences
 - R [Flood frequency analysis]
 - Required packages (see `environment/randomforest.yml`, `environment/FFA_POT.yml`)
 
-To set up the environment:
+To set up the environment:  
+
 conda env create -f environment/filename.yml  
 
 conda activate [env_name]
