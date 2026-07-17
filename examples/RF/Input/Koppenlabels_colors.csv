@@ -1,0 +1,32 @@
+koppen_vals,Koppen,Koppen_dsc,Koppen_short,Colors,Colors_c
+0,NA,NA,NA,transparent,transparent
+1,Af,"Tropical, rainforest",A (tropical),#F8D348,#F8D348
+2,Am,"Tropical, monsoon",A (tropical),#F8D348,#F8D348
+3,Aw,"Tropical, savannah",A (tropical),#F8D348,#F8D348
+4,BWh,"Arid, desert, hot",B (arid),#C6B18B,#8B2323
+5,BWk,"Arid, desert, cold",B (arid),#C6B18B,#8B2323
+6,BSh,"Arid, steppe, hot",B (arid),#C6B18B,#8B2323
+7,BSk,"Arid, steppe, cold",B (arid),#C6B18B,#8B2323
+8,Csa,"Temperate, dry summer, hot summer",C (temperate),#66C2A5,#66C2A5
+9,Csb,"Temperate, dry summer, warm summer",C (temperate),#66C2A5,#66C2A5
+10,Csc,"Temperate, dry summer, cold summer",C (temperate),#66C2A5,#66C2A5
+11,Cwa,"Temperate, dry winter, hot summer",C (temperate),#66C2A5,#66C2A5
+12,Cwb,"Temperate, dry winter, warm summer",C (temperate),#66C2A5,#66C2A5
+13,Cwc,"Temperate, dry winter, cold summer",C (temperate),#66C2A5,#66C2A5
+14,Cfa,"Temperate, no dry season, hot summer",C (temperate),#66C2A5,#66C2A5
+15,Cfb,"Temperate, no dry season, warm summer",C (temperate),#66C2A5,#66C2A5
+16,Cfc,"Temperate, no dry season, cold summer",C (temperate),#66C2A5,#66C2A5
+17,Dsa,"Cold, dry summer, hot summer",D (cold),#A89BB0,#1E90FF
+18,Dsb,"Cold, dry summer, warm summer",D (cold),#A89BB0,#1E90FF
+19,Dsc,"Cold, dry summer, cold summer",D (cold),#A89BB0,#1E90FF
+20,Dsd,"Cold, dry summer, very cold winter",D (cold),#A89BB0,#1E90FF
+21,Dwa,"Cold, dry winter, hot summer",D (cold),#A89BB0,#1E90FF
+22,Dwb,"Cold, dry winter, warm summer",D (cold),#A89BB0,#1E90FF
+23,Dwc,"Cold, dry winter, cold summer",D (cold),#A89BB0,#1E90FF
+24,Dwd,"Cold, dry winter, very cold winter",D (cold),#A89BB0,#1E90FF
+25,Dfa,"Cold, no dry season, hot summer",D (cold),#A89BB0,#1E90FF
+26,Dfb,"Cold, no dry season, warm summer",D (cold),#A89BB0,#1E90FF
+27,Dfc,"Cold, no dry season, cold summer",D (cold),#A89BB0,#1E90FF
+28,Dfd,"Cold, no dry season, very cold winter",D (cold),#A89BB0,#1E90FF
+29,ET,"Polar, tundra",E (polar),#B3B3B3,#9A32CD
+30,EF,"Polar, frost",E (polar),#B3B3B3,#9A32CD
