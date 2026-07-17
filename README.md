@@ -12,7 +12,8 @@ Global Estimation of Bankfull River Discharge Reveals Distinct Flood Recurrences
 - Required packages (see `environment/randomforest.yml`, `environment/FFA_POT.yml`)
 
 To set up the environment:
-conda env create -f environment/filename.yml
+conda env create -f environment/filename.yml  
+
 conda activate [env_name]
 
 ---
@@ -61,7 +62,7 @@ examples/
 
 ## 6. Contact
 
-For questions, please contact: [yinxue.liu@ouce.ox.ac.uk]
+For questions, please contact: [yinxue.liu@ouce.ox.ac.uk] or [yinxue.liu@outlook.com]
 
 
 
