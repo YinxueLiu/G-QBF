@@ -39,11 +39,12 @@ To analyze the return period of the bankfull discharge data and generate the 2-y
 Run the scripts in the following order:
 
 1. Train and evaluate model
+   
 `python scripts/RandomForest.py`
 
-2. Analysis the return period of bankfull discharge and 2-year return period of floods
+3. Analysis the return period of bankfull discharge and 2-year return period of floods
 
-`R scripts/FFA_POT.R`
+`R scripts/FFA_POT.R --station_info examples/FFA-POT/Input/GRITv06_stations_QBFobs_USGS_05453100.csv --dir_path examples/FFA-POT/Input/daily_streamflow --loess-span 0.5 --output Output/USGS_05453100.csv `
 
 ---
 
