@@ -207,24 +207,6 @@ def stations_obs(station_qbf,koppen_color,stratify_col,quantile=True):
     value_counts = st[stratify_col].value_counts()
     return st,value_counts
 
-def predictors_process(predictors_info,station_predictors):
-    predictors_info = _read_predictors_info(predictors_info)
-    print("The predictors used are ", predictors_info.index)
-    predictors = _read_or_df(station_predictors, index_col='station_id',na_values="*")[predictors_info.index]
-
-    # fill effective river width as 0 when null
-    gswe_widths = ['gswe_width_occ_'+str(occ)+'_scaled' for occ in [1,10,20,30,40,50]]
-    for col in gswe_widths:
-        predictors[col] = predictors[col].fillna(0)
-    cleaned_pred = predictors.dropna(how="any")
-
-    if len(cleaned_pred) != len(predictors):
-        prm = (len(predictors) - len(cleaned_pred)) * 100 / len(predictors)
-        warnings.warn(f"Removed {prm:.2f}% of stations due to missing values.")
-    cleaned_pred = cleaned_pred[~cleaned_pred.index.duplicated(keep='first')]
-    
-    return cleaned_pred
-
 def model_training(i,cleaned_pred,qbf,st,stratify_col,output_hyparameters,\
     ncpus,permutation_importances,output_cross_val,y_target='qbf'):
     from sklearn.model_selection import train_test_split
@@ -260,19 +242,19 @@ def model_training(i,cleaned_pred,qbf,st,stratify_col,output_hyparameters,\
     # each run the random_state is different
     cv = KFold(n_splits=5, shuffle=True,random_state=defkwargs.get('random_state')) 
 
-    model = make_pipeline(sklprep.RobustScaler(), RandomForestRegressor())
-    param_grid = [{
-   'randomforestregressor__n_estimators': [100,200,300,400,500], # 800 proved to be a good one in multiple tests
-   'randomforestregressor__max_features': [0.2,0.3,0.4], # 0.2, 0.4 are good
-   'randomforestregressor__min_samples_leaf': [2,3,4,5,6,7,8] # 6,8 are good
-    }]
+    model = make_pipeline(sklprep.RobustScaler(), RandomForestRegressor(**defkwargs))
+#     param_grid = [{
+#    'randomforestregressor__n_estimators': [100,200,300,400,500], # 800 proved to be a good one in multiple tests
+#    'randomforestregressor__max_features': [0.2,0.3,0.4], # 0.2, 0.4 are good
+#    'randomforestregressor__min_samples_leaf': [2,3,4,5,6,7,8] # 6,8 are good
+#     }]
 
     # quick test can be done by passing a single parameter set below
-#     param_grid = [{
-#    'randomforestregressor__n_estimators': [200], 
-#    'randomforestregressor__max_features': [0.4], 
-#    'randomforestregressor__min_samples_leaf': [6]
-#     }]
+    param_grid = [{
+   'randomforestregressor__n_estimators': [200], 
+   'randomforestregressor__max_features': [0.4], 
+   'randomforestregressor__min_samples_leaf': [6]
+    }]
     # best parameter search with cross-validation
     grid_search = GridSearchCV(model, param_grid, cv=cv, scoring='r2',n_jobs=ncpus)
     grid_search.fit(X_train, y_train,\
@@ -621,8 +603,7 @@ def plot_cv_split(run_no,cv,cross_val_scores,X,y,model,st,
     # print('The mean value of the cross-validation score is ',np.mean(cross))
     return fig
 
-
-def train_model_all_rebuild(trained_model,station_qbf, station_predictors, predictors_info, \
+def train_model_all_rebuild(station_qbf, station_predictors, \
                 koppen_color,\
                 ncpus=1,\
                 output=None, \
@@ -645,30 +626,29 @@ def train_model_all_rebuild(trained_model,station_qbf, station_predictors, predi
     from bankfull_discharge_estimates import _load_model
     
     # take the QBF samples from the submitted paper model
-    df_ori = pd.read_csv(trained_model,index_col='station_id')
+    # df_ori = pd.read_csv(trained_model,index_col='station_id')
     
 
     stratify_col = 'combined_cat'
     # get the parent path from the output_csv
     output_path = os.path.dirname(output_csv)
     # below two files are saved at each run of training the model
-    output_cross_val=output_path+"/"+"cross_val/train_test_cross_val_5fold.png"
+    output_cross_val=output_path+"/"+"cross_val/5fold.png"
     # output_cross_val = None
     output_hyparameters=output_path+"/"+"cross_val/best_hyperparameters.txt"
 
     # prepare training target and predictors
     st,value_counts = stations_obs(station_qbf,koppen_color,stratify_col,quantile=True)
-    # import ipdb;ipdb.set_trace()
+
     # remove stations where the count of their category [QBF_magnitude,climate] is smaller than 5
     st = st[st[stratify_col].isin(value_counts.index[value_counts >= 5])]
-    st = st[st.index.isin(df_ori.index)]
-    # overlap by station_id
+
 
     # keep only one for duplicated station_id
     st = st[~st.index.duplicated(keep='first')]
-    cleaned_pred = predictors_process(predictors_info,station_predictors)
-
+    cleaned_pred = pd.read_csv(station_predictors, index_col='station_id')
     cleaned_pred, qbf = _ix_overlap(cleaned_pred,st[["qbf"]])
+    # import ipdb;ipdb.set_trace()
     cleaned_pred_cp = cleaned_pred.copy()
 
     # define an empty list to store the index for training data
@@ -769,6 +749,7 @@ def train_model_all_rebuild(trained_model,station_qbf, station_predictors, predi
     end_time = time.time()
     execution_time = end_time - start_time
     print(f"Execution time: {execution_time:.4f} seconds")
+                    
 
 if __name__ == "__main__":
     from commandline import interface as _cli
