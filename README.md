@@ -57,7 +57,7 @@ examples/
 ## 5. Reproducibility notes
 Using the data provided in the examples/RF/Input with the code above (scripts/RandomForest.py) should reproduce the results in examples/RF/Output  
 
-Using the data provided in the examples/FFA-POT/Input with the code above (scripts/FFA_POT.R) shoulr reproduce the results in the examples/FFA-POT/Output  
+Using the data provided in the examples/FFA-POT/Input with the code above (scripts/FFA_POT.R) should reproduce the results in the examples/FFA-POT/Output  
 
 - Random seed is controlled via `random_state`
 - Results are averaged over multiple runs (`n_run = X`)
