@@ -40,7 +40,7 @@ Run the scripts in the following order:
 
 1. Train and evaluate model
    
-`python scripts/RandomForest.py`
+`python scripts/RandomForest.py --station_qbf=RF/Input/observed_qbf.csv --station_predictors=RF/Input/station_predictors.csv --koppen_color=RF/Input/Koppenlabels_colors.csv --output=RF/Output/trained_model.joblib --output_performance=RF/Output/model_performance.csv --ouput_csv=RF/Output/qbf_train_test.csv --n_run=1`
 
 3. Analysis the return period of bankfull discharge and 2-year return period of floods
 
@@ -55,6 +55,9 @@ examples/
 ---
 
 ## 5. Reproducibility notes
+Using the data provided in the examples/RF/Input with the code above (scripts/RandomForest.py) should reproduce the results in examples/RF/Output  
+
+Using the data provided in the examples/FFA-POT/Input with the code above (scripts/FFA_POT.R) shoulr reproduce the results in the examples/FFA-POT/Output  
 
 - Random seed is controlled via `random_state`
 - Results are averaged over multiple runs (`n_run = X`)
