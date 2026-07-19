@@ -42,7 +42,7 @@ Run the scripts in the following order:
    
 `python scripts/RandomForest.py --station_qbf=RF/Input/observed_qbf.csv --station_predictors=RF/Input/station_predictors.csv --koppen_color=RF/Input/Koppenlabels_colors.csv --output=RF/Output/trained_model.joblib --output_performance=RF/Output/model_performance.csv --ouput_csv=RF/Output/qbf_train_test.csv --n_run=1`
 
-3. Analysis the return period of bankfull discharge and 2-year return period of floods
+2. Analysis the return period of bankfull discharge and 2-year return period of floods
 
 `R scripts/FFA_POT.R --station_info examples/FFA-POT/Input/GRITv06_stations_QBFobs_USGS_05453100.csv --dir_path examples/FFA-POT/Input/daily_streamflow --loess-span 0.5 --output Output/USGS_05453100.csv `
 
