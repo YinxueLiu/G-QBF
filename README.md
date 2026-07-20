@@ -19,15 +19,11 @@ conda activate [env_name]
 
 ---
 
-## 2. Data
+## 2. Data Requirement
 
 To train and evaluate the Random Forest model:
 - Observed bankfull discharge
 - Predictors at each of the above observed bankfull discharge sites
-
-To make predictions of global rivers:
-- Trained model from the above step, trained.joblib
-- Predictors for global rivers
   
 To analyze the return period of the bankfull discharge data and generate the 2-year return period of floods:
 - Daily streamflow records matched to the observed or estimated bankfull discharge
@@ -50,7 +46,7 @@ Run the scripts in the following order:
 
 ## 4. Outputs
 
-examples/
+examples/ include reproducible working examples for train and evaluate model and analysis the return period of bankfull discharge and 2-year return period of floods from daily streamflow records
 
 ---
 
